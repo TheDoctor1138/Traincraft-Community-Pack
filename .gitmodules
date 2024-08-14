@@ -1,0 +1,4 @@
+[submodule "submodules/Traincraft"]
+	path = submodules/Traincraft
+	url = https://github.com/TheDoctor1138/Traincraft-5.git
+	branch = TC4.5-1.7.10
