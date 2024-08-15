@@ -83,7 +83,7 @@ task buildSubmoduleJar(type: GradleBuild) {
 task copySubmoduleJar(type: Copy, dependsOn: buildSubmoduleJar) {
     description = 'Copies the JAR from the submodule to the main repository'
     from 'submodules/Traincraft/build/libs' // The directory where the submodule's JAR is located
-    into 'libs' // The destination directory in the main repository
+    into 'lib' // The destination directory in the main repository
     include '*.jar'
 }
 
@@ -129,7 +129,7 @@ dependencies {
     implementation "train:Traincraft-4.4.1_020-CE_7.1"
     
     // quality of life line to simplify importing jars for experimental testing
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'lib', include: ['*.jar'])
 }
 
 idea
