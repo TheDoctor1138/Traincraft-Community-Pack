@@ -6,6 +6,7 @@ import train.common.api.TrainRecord;
 public class TCCEEnumTrains {
 	public static TrainRecord[] trains() {
 		return new TrainRecord[]{
+				//TrainRecord.makeEntry(EnumEntry, InternalName, EntityClass, ItemID, TrainType, MHP, MaxSpeed, Mass, FuelConsumption, WaterConsumption, HeatingTime, AccRate, BrakeRate, TankCapacity, Colours, GUIRenderScale, BogiePos
 
 		};
 

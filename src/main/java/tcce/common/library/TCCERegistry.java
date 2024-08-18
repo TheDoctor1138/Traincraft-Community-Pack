@@ -4,11 +4,11 @@ package tcce.common.library;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.relauncher.Side;
 import net.minecraft.item.Item;
-import train.common.api.TrainRecord;
+import tcce.client.render.TCCERenderEnum;
 import train.common.Traincraft;
+import train.common.api.TrainRecord;
 import train.common.api.TrainRenderRecord;
 import train.common.api.TrainSoundRecord;
-
 
 import java.util.ArrayList;
 import java.util.HashMap;

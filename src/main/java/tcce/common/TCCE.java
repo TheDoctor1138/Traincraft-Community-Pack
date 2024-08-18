@@ -10,11 +10,14 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import tcce.common.core.CommonProxy;
+import tcce.common.core.EntityHandler;
+import tcce.common.core.TCCETab;
+import tcce.common.core.handlers.TCCERecipeHandler;
 import tcce.common.items.TCCEItems;
 import tcce.common.library.TCCEInfo;
 import tcce.common.library.TCCERegistry;
-import train.common.core.CommonProxy;
-import train.common.core.handlers.EntityHandler;
+import tcce.common.recipes.AssemblyTableRecipes;
 
 @Mod(modid = TCCEInfo.modID, name = TCCEInfo.modName, version = TCCEInfo.modVersion)
 public class TCCE {
@@ -23,7 +26,7 @@ public class TCCE {
     @Mod.Instance(TCCEInfo.modID)
     public static TCCE instance;
 
-    @SidedProxy(clientSide = "com.thedoctor1138.train.client.core.ClientProxy", serverSide = "com.thedoctor1138.train.common.core.CommonProxy")
+    @SidedProxy(clientSide = "tcce.client.core.ClientProxy", serverSide = "tcce.common.core.CommonProxy")
     public static CommonProxy proxy;
 
     /* TrainCraft Logger */
@@ -32,13 +35,13 @@ public class TCCE {
 //	public static File configDirectory;
 
     /* Creative tab for Traincraft */
-    public static CreativeTabs tcMLPTab;
+    public static CreativeTabs TCCETab;
 
     private TCCERegistry registry;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        tcLog.info("Starting Traincraft MLP Addon " + TCCEInfo.modVersion + "!");
+        tcLog.info("Starting Traincraft Community Edition Addon " + TCCEInfo.modVersion + "!");
 
         /* Config handler */
 //		configDirectory= event.getModConfigurationDirectory();
@@ -46,7 +49,7 @@ public class TCCE {
         /* Register Items, Blocks, ... */
         tcLog.info("Initialize Blocks, Items, ...");
 
-        tcMLPTab = new TCCECreativeTabTraincraftTrains(CreativeTabs.getNextID(), "TCMLP");
+        TCCETab = new TCCETab(CreativeTabs.getNextID(), "TCCE");
 
 
         TCCEItems.init();
@@ -94,4 +97,4 @@ public class TCCE {
     @Mod.EventHandler
     public void serverStop(FMLServerStoppedEvent event) {
     }
-}    }
+}

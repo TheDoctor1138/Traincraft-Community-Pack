@@ -1,0 +1,30 @@
+<!-- ## This is a comment, do no remove or modify these! ## -->
+<!-- ## Only replace the words on the right side of "=" ## -->
+<!-- ## Save the file the same way this file was saved but replace "en_US" with appropriate language name ## -->
+
+<!-- Items -->
+
+
+<!-- Entities -->
+
+<!-- ## GUI ## -->
+menu.item.country=Country
+menu.item.=N/A
+menu.item.be=Belgium
+menu.item.uk=United Kingdom
+menu.item.us=United States
+menu.item.cz=Czech Republic
+menu.item.de=Germany
+menu.item.es=Spain
+
+train.owner.name=You are not the owner!
+train.locked.name=Locked
+train.unlocked.name=Unlocked
+
+key.categories.traincraft=Traincraft-CE-Addon
+key.traincraft.horn=Horn
+key.traincraft.inventory=Inventory
+key.traincraft.up=Up
+key.traincraft.down=Down
+key.traincraft.idle=Idle
+key.traincraft.furnace=Furnace

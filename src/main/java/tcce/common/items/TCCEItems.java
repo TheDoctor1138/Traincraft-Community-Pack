@@ -24,13 +24,12 @@ public class TCCEItems {
         for (TCCEItemIDs items : TCCEItemIDs.values()) {
             if (items.className != null) {
                 if (items.className.equals("ItemRollingStock")) {
-                    items.item = new ItemRollingStock(TCCEInfo.modID.toLowerCase() + ":trains/" + items.iconName, TCCE.TCCETab);
+                    items.item = new ItemRollingStock("tc" + ":trains/" + items.iconName, TCCE.TCCETab);
                 }
             }
         }
 
-
-
+        TCCEItemIDs.recipeBook.item = new ItemRecipeBook();
     }
 
     private static void registerItems() {

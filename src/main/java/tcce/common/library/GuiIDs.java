@@ -1,4 +1,4 @@
-package com.thedoctor1138.train.common.library;
+package tcce.common.library;
 
 public class GuiIDs {
 

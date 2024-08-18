@@ -3,9 +3,9 @@ package tcce.common.library;
 public class TCCEInfo {
 
     /* Mod relevant information */
-    public static final String modID = "tc";
+    public static final String modID = "tcce";
     public static final String modName = "Community Edition Addon For Traincraft";
-    public static final String modVersion = "0.0";
+    public static final String modVersion = "1.0";
     public static final String channel = "TCCE";
     public static final String keyChannel = "TCCEKey";
     public static final String rotationChannel = "TCCERotation";
