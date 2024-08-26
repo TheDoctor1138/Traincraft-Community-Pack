@@ -35,4 +35,5 @@ run
 *.directory
 classes
 runserver
+libs
 buildtotest.bat
