@@ -1,5 +1,6 @@
 package tcce.common;
 
+import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -11,8 +12,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import tcce.common.core.CommonProxy;
-import tcce.common.core.EntityHandler;
 import tcce.common.core.TCCETab;
+import tcce.common.core.handlers.EntityHandler;
 import tcce.common.core.handlers.TCCERecipeHandler;
 import tcce.common.items.TCCEItems;
 import tcce.common.library.TCCEInfo;
@@ -42,6 +43,11 @@ public class TCCE {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         tcLog.info("Starting Traincraft Community Edition Addon " + TCCEInfo.modVersion + "!");
+
+        if (!Loader.isModLoaded("tc")) {
+            tcLog.error("Traincraft not found");
+        }
+
 
         /* Config handler */
 //		configDirectory= event.getModConfigurationDirectory();

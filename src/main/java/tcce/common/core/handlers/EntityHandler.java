@@ -1,4 +1,4 @@
-package tcce.common.core; /*******************************************************************************
+package tcce.common.core.handlers; /*******************************************************************************
  * Copyright (c) 2012 Mrbrutal. All rights reserved.
  *
  * @name TrainCraft
@@ -13,10 +13,11 @@ import net.minecraft.world.WorldServer;
 import tcce.common.library.TCCEEnumTrains;
 import train.common.Traincraft;
 import train.common.api.TrainRecord;
+import train.common.library.EnumTrains;
 
 public class EntityHandler {
     public static void init() {
-        int trainID= 32;
+        int trainID= EnumTrains.trains().length + 32;
         for(TrainRecord trains : TCCEEnumTrains.trains()){
             EntityRegistry.registerModEntity(trains.getEntityClass(), trains.getInternalName(), trainID, Traincraft.instance, 512, 1, true);
             trainID++;
