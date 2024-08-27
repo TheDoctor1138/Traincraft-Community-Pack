@@ -9,7 +9,6 @@ package tcce.common.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import tcce.common.TCCE;
-import tcce.common.library.TCCEInfo;
 import tcce.common.library.TCCEItemIDs;
 import train.common.items.ItemRollingStock;
 
@@ -35,8 +34,18 @@ public class TCCEItems {
     private static void registerItems() {
         for (TCCEItemIDs itemId : TCCEItemIDs.values()) {
             if (itemId.item != null) {
-                itemId.item.setUnlocalizedName(TCCEInfo.modID + ":" + itemId.name());
-                GameRegistry.registerItem(itemId.item, itemId.name());
+                if (itemId.className != null) {
+                    if (itemId.className.equals("ItemRollingStock")) {
+                        itemId.item.setUnlocalizedName("tc:" + itemId.name());
+                        GameRegistry.registerItem(itemId.item, itemId.name(), "tc");
+                    }
+                    else {
+                        GameRegistry.registerItem(itemId.item, itemId.name());
+                    }
+                }
+
+
+
             }
         }
     }
