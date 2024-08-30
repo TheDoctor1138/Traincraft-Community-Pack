@@ -114,7 +114,7 @@ goto restart
 :submodule
 @echo on
 REM Pull the latest changes in the main repository (optional)
-git pull origin main
+git submodule update --remote
 
 REM Navigate to the submodule directory (relative path)
 cd submodules\Traincraft
