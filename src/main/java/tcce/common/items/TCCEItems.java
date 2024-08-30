@@ -8,9 +8,9 @@
 package tcce.common.items;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import tcce.common.TCCE;
+import tcce.common.library.TCCEInfo;
 import tcce.common.library.TCCEItemIDs;
-import train.common.items.ItemRollingStock;
+import train.common.Traincraft;
 
 public class TCCEItems {
 
@@ -20,28 +20,17 @@ public class TCCEItems {
     }
 
     private static void loadItems() {
-        for (TCCEItemIDs items : TCCEItemIDs.values()) {
-            if (items.className != null) {
-                if (items.className.equals("ItemRollingStock")) {
-                    items.item = new ItemRollingStock("tc" + ":trains/" + items.iconName, TCCE.TCCETab);
-                }
-            }
-        }
 
-        TCCEItemIDs.recipeBook.item = new ItemRecipeBook();
+        TCCEItemIDs.recipeBook.item = new ItemRecipeBook().setCreativeTab(Traincraft.tcCommunityTab);
     }
 
     private static void registerItems() {
         for (TCCEItemIDs itemId : TCCEItemIDs.values()) {
             if (itemId.item != null) {
                 if (itemId.className != null) {
-                    if (itemId.className.equals("ItemRollingStock")) {
-                        itemId.item.setUnlocalizedName("tc:" + itemId.name());
-                        GameRegistry.registerItem(itemId.item, itemId.name(), "tc");
-                    }
-                    else {
-                        GameRegistry.registerItem(itemId.item, itemId.name());
-                    }
+                    GameRegistry.registerItem(itemId.item, itemId.name());
+                    itemId.item.setUnlocalizedName(TCCEInfo.modID + ":" + itemId.name());
+
                 }
 
 

@@ -12,6 +12,7 @@ import tcce.common.entity.rollingStock.passenger.*;
 import tcce.common.entity.rollingStock.steam.*;
 import tcce.common.entity.rollingStock.tender.*;
 import train.common.api.TrainRecord;
+import train.common.library.TCCEItemIDs;
 
 
 public class TCCEEnumTrains {

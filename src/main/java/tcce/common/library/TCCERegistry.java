@@ -32,10 +32,10 @@ public class TCCERegistry {
             for (TCCERenderEnum render : TCCERenderEnum.values()) {
                 Traincraft.instance.traincraftRegistry.registerTrainRenderRecord(render);
             }
-        }
 
-        for (TrainSoundRecord sound : TCCEEnumSounds.values()) {
-            Traincraft.instance.traincraftRegistry.registerTrainSoundRecord(sound);
+            for (TrainSoundRecord sound : TCCEEnumSounds.values()) {
+                Traincraft.instance.traincraftRegistry.registerTrainSoundRecord(sound);
+            }
         }
     }
 

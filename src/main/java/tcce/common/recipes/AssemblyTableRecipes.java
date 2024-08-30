@@ -9,8 +9,8 @@ import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import train.common.api.crafting.ITierCraftingManager;
 import train.common.core.managers.TierRecipeManager;
-import tcce.common.library.TCCEItemIDs;
-import  train.common.library.ItemIDs;
+import train.common.library.TCCEItemIDs;
+import train.common.library.ItemIDs;
 
 import java.util.ArrayList;
 import java.util.List;

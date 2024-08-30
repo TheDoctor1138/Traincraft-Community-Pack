@@ -5,17 +5,15 @@
 
 package tcce.client.core.handlers;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-
 import net.minecraft.item.Item;
 import train.common.core.interfaces.ITCRecipe;
 import train.common.core.managers.TierRecipe;
+import train.common.library.Info;
+import train.common.library.TCCEItemIDs;
 import train.common.recipes.ShapedTrainRecipes;
 import train.common.recipes.ShapelessTrainRecipe;
+
+import java.util.*;
 
 public class RecipeBookHandler {
     public static String[] vanillaWorkTableRecipes = new String[21];
@@ -40,6 +38,9 @@ public class RecipeBookHandler {
 
             ITCRecipe recipe = (ITCRecipe)r;
             String output = Item.itemRegistry.getNameForObject(recipe.getRecipeOutput().getItem());
+
+
+
             if (!outputs.contains(output)) {
                 if (!output.contains("tc:")) {
                     cleaned.add(recipe);
@@ -60,11 +61,16 @@ public class RecipeBookHandler {
                 TierRecipe recipe = (TierRecipe)r;
                 String output = Item.itemRegistry.getNameForObject(recipe.getOutput().getItem());
                 if (!outputs.contains(output)) {
-                    if (!output.contains("tc:")) {
-                        cleanedList.add(recipe);
-                        outputs.add(output);
+                    for (TCCEItemIDs items : TCCEItemIDs.values()) {
+                        if (output.equals(Info.modID + ":" + items.name())) {
+                            cleanedList.add(recipe);
+                            outputs.add(output);
+                        }
                     }
                 }
+
+
+
             }
         }
 

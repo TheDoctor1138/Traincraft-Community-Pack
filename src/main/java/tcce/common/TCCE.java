@@ -12,7 +12,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import tcce.common.core.CommonProxy;
-import tcce.common.core.TCCETab;
 import tcce.common.core.handlers.EntityHandler;
 import tcce.common.core.handlers.TCCERecipeHandler;
 import tcce.common.items.TCCEItems;
@@ -20,7 +19,7 @@ import tcce.common.library.TCCEInfo;
 import tcce.common.library.TCCERegistry;
 import tcce.common.recipes.AssemblyTableRecipes;
 
-@Mod(modid = TCCEInfo.modID, name = TCCEInfo.modName, version = TCCEInfo.modVersion)
+@Mod(modid = TCCEInfo.modID, name = TCCEInfo.modName, version = TCCEInfo.modVersion, dependencies = "required-after:tc")
 public class TCCE {
 
     /* TrainCraft instance */
@@ -55,17 +54,17 @@ public class TCCE {
         /* Register Items, Blocks, ... */
         tcLog.info("Initialize Blocks, Items, ...");
 
-        TCCETab = new TCCETab(CreativeTabs.getNextID(), "TCCE");
+        //TCCETab = new TCCETab(CreativeTabs.getNextID(), "TCCE");
 
 
-        TCCEItems.init();
+
         EntityHandler.init();
 
         /* Other Proxy init */
         tcLog.info("Initialize Renderer and Events");
 
         registry = new TCCERegistry();
-        registry.init();
+
 
         tcLog.info("Finished PreInitialization");
     }
@@ -74,13 +73,8 @@ public class TCCE {
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-    }
-
-    @Mod.EventHandler
-    public void load(FMLInitializationEvent event) {
-
-
-
+        tcLog.info("Start Initialization");
+        TCCEItems.init();
         tcLog.info("Initialize Gui");
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
 
@@ -92,7 +86,13 @@ public class TCCE {
         AssemblyTableRecipes.recipes();
 
         proxy.registerBookHandler();
+        registry.init();
+        tcLog.info("Finished Initialization");
 
+    }
+
+    @Mod.EventHandler
+    public void load(FMLInitializationEvent event) {
 
     }
 
