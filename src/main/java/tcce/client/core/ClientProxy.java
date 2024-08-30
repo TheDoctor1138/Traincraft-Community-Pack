@@ -28,6 +28,8 @@ public class ClientProxy extends CommonProxy {
         return(cal.get(Calendar.MONTH) == Calendar.AUGUST && cal.get(Calendar.DATE) == 29);
     }
 
+    public static boolean preRenderModels = false;
+
 
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {

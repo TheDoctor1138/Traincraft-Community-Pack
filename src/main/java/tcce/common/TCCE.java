@@ -30,7 +30,7 @@ public class TCCE {
     public static CommonProxy proxy;
 
     /* TrainCraft Logger */
-    public static Logger tcLog = LogManager.getLogger(TCCEInfo.modName);
+    public static Logger tcceLog = LogManager.getLogger(TCCEInfo.modName);
 
 //	public static File configDirectory;
 
@@ -41,45 +41,36 @@ public class TCCE {
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        tcLog.info("Starting Traincraft Community Edition Addon " + TCCEInfo.modVersion + "!");
+        tcceLog.info("Starting PreInitialization");
+        tcceLog.info("Starting Traincraft Community Edition" + TCCEInfo.modVersion + "!");
 
         if (!Loader.isModLoaded("tc")) {
-            tcLog.error("Traincraft not found");
+            tcceLog.error("Traincraft is not installed!");
         }
-
-
         /* Config handler */
 //		configDirectory= event.getModConfigurationDirectory();
-
-        /* Register Items, Blocks, ... */
-        tcLog.info("Initialize Blocks, Items, ...");
-
-        //TCCETab = new TCCETab(CreativeTabs.getNextID(), "TCCE");
-
-
-
+        tcceLog.info("Initialising Entities.");
         EntityHandler.init();
 
         /* Other Proxy init */
-        tcLog.info("Initialize Renderer and Events");
+        tcceLog.info("Initialize Renderer and Events");
 
         registry = new TCCERegistry();
-
-
-        tcLog.info("Finished PreInitialization");
+        tcceLog.info("Finished PreInitialization");
     }
 
 
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
-        tcLog.info("Start Initialization");
+        tcceLog.info("Start Initialization");
+        tcceLog.info("Initialize Blocks, Items, ...");
         TCCEItems.init();
-        tcLog.info("Initialize Gui");
+        tcceLog.info("Initialize Gui");
         NetworkRegistry.INSTANCE.registerGuiHandler(instance, proxy);
 
 
-        tcLog.info("Initialize Recipes");
+        tcceLog.info("Initialize Recipes");
         TCCERecipeHandler.initBlockRecipes();
         TCCERecipeHandler.initItemRecipes();
         TCCERecipeHandler.initSmeltingRecipes();
@@ -87,7 +78,7 @@ public class TCCE {
 
         proxy.registerBookHandler();
         registry.init();
-        tcLog.info("Finished Initialization");
+        tcceLog.info("Finished Initialization");
 
     }
 
@@ -98,6 +89,9 @@ public class TCCE {
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent evt) {
+        tcceLog.info("Start to PostInitialize");
+        TCCERegistry.endRegistration();
+        tcceLog.info("Finished PostInitialization");
     }
 
     @Mod.EventHandler

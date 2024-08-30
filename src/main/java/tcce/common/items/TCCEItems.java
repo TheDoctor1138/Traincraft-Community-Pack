@@ -7,9 +7,9 @@
  */
 package tcce.common.items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import tcce.common.library.TCCEInfo;
 import tcce.common.library.TCCEItemIDs;
+import tcce.common.library.TCCERegistry;
 import train.common.Traincraft;
 
 public class TCCEItems {
@@ -21,15 +21,14 @@ public class TCCEItems {
 
     private static void loadItems() {
 
-        TCCEItemIDs.recipeBook.item = new ItemRecipeBook().setCreativeTab(Traincraft.tcCommunityTab);
+        TCCEItemIDs.recipeBook.item = new ItemRecipeBook();
     }
 
     private static void registerItems() {
         for (TCCEItemIDs itemId : TCCEItemIDs.values()) {
             if (itemId.item != null) {
                 if (itemId.className != null) {
-                    GameRegistry.registerItem(itemId.item, itemId.name());
-                    itemId.item.setUnlocalizedName(TCCEInfo.modID + ":" + itemId.name());
+                    TCCERegistry.registerItem(itemId.item, TCCEInfo.modID, itemId.name(), Traincraft.tcCommunityTab);
 
                 }
 

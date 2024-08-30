@@ -19,6 +19,11 @@ public class CommonProxy implements IGuiHandler {
 
     }
 
+    public boolean isClient(){
+        return false;
+    }
+    public Object getTESR(){return null;}
+
     public GuiScreen getCurrentScreen() {
         return null;
     }
